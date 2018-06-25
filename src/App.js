@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person'
-import Radium from 'radium'
+import Radium, { StyleRoot } from 'radium'
 
 class App extends Component {
   state = {
@@ -43,14 +43,14 @@ class App extends Component {
   render() {
     const style = {
       backgroundColor: 'green',
-      color: 'white', 
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
-      padding: '8px', 
+      padding: '8px',
       cursor: 'pointer',
       ':hover': {
-          backgroundColor: 'lightgreen',
-          color: 'black'
+        backgroundColor: 'lightgreen',
+        color: 'black'
       }
     }
 
@@ -86,12 +86,14 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <h1>App</h1>
-        <p className={classes.join(' ')}>This is really work</p>
-        <button style={style} onClick={this.togglePersonHandler}>Toggle Show</button>
-        {persons}
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1>App</h1>
+          <p className={classes.join(' ')}>This is really work</p>
+          <button style={style} onClick={this.togglePersonHandler}>Toggle Show</button>
+          {persons}
+        </div>
+      </StyleRoot>
     );
   }
 }
